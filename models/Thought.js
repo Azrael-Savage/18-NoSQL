@@ -19,7 +19,13 @@ const ReactionSchema = new mongoose.Schema({
     default: Date.now,
     get: (timestamp) => formatDate(timestamp),
   },
-});
+  },
+  {
+      toJSON: {
+        getters: true,
+      },
+  }
+);
 
 const ThoughtSchema = new mongoose.Schema({
   thoughtText: {
@@ -38,7 +44,13 @@ const ThoughtSchema = new mongoose.Schema({
     required: true,
   },
   reactions: [ReactionSchema],
-});
+},
+{
+  toJSON: {
+    getters: true,
+  },
+}
+);
 
 ThoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
