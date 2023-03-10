@@ -1,7 +1,8 @@
+require('dotenv').config();
 const mongoose = require("mongoose");
-
+const url = process.env.MONGODB_URI || '127.0.0.1:27017/socialmediaDB';
 // Wrap Mongoose around local connection to MongoDB
-mongoose.connect("mongodb+srv://WiseGoddessAthena:N%40than!!56@athenacluster.o0vvqx7.mongodb.net/socialmediaDB", {
+mongoose.connect(url, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
