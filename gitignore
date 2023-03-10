@@ -1,3 +1,12 @@
 node_modules
 Assets
 package-lock.json
+
+
+# Node.js and npm
+node_modules/
+npm-debug.log
+
+# MongoDB
+.env
+/data/db/*
